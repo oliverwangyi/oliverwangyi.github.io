@@ -14,13 +14,26 @@
 
 <!-- Mobile Specific Metas
   ================================================== -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" charset="utf-8">
 
 <!-- CSS
   ================================================== -->
 <link rel="stylesheet" href="stylesheets/base.css">
 <link rel="stylesheet" href="stylesheets/skeleton.css">
 <link rel="stylesheet" href="stylesheets/layout.css">
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+</style>
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -70,14 +83,22 @@
         
         <hr />
         
-        <h3>
-            Code Growth Co-integration Network
-        </h3>
-        <img src="images/co-in-net.png" alt="co-in-net" width="560px">
-        <p> <strong> Note: Blue circle: Code growth traces of experienced developers; White cicle: Code growth traces of less experienced developers.</strong>
-        
-        <hr />
+        </div>
+        <!--<img src="images/co-in-net.png" alt="co-in-net" width="560px">-->
+    <div class="twelve columns offset-by-two" style="text-align:left;">
+    <h3>Interactive Code Growth Co-integration Network</h3>
+    <center class="image-wrapper">
+        <a href="JavaScript:newPopup('nier-net/conet.html');"><img width='560px' src="images/conet-thumbnail.png" />
+        <p class="text">Click!</p></a>
+    </center>
     </div>
+    <!--
+        <p> <strong> Note: Blue circle: Code growth traces of experienced developers; White cicle: Code growth traces of less experienced developers.</strong>
+         
+         <hr />
+        
+    </div>
+    -->
     
     
 
