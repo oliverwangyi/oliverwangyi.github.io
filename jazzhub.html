@@ -77,8 +77,9 @@
         <h2 class="remove-bottom" style="margin-top: 40px">
             User Behavior Study in Cloud Based IDEs
         </h2>
+        <p> </p>
         
-        <p><font size="4"><em>"What are the advantages brought by clould based IDEs beyond the pervasive development experience?"</em></font></p>
+        <p><font size="4"><em>"What are the advantages brought by clould based IDEs beyond the pervasive development experience? And, how to improve the current cloud based IDEs to provide enhanced user experience?"</em></font></p>
         <a href="papers/NIER2014.pdf" class="fancy-button" style="color:#14396a;">Paper online</a>
         
         <hr />
@@ -91,6 +92,8 @@
         <a href="JavaScript:newPopup('nier-net/conet.html');"><img width='560px' src="images/conet-thumbnail.png" />
         <p class="text">Click!</p></a>
     </center>
+    <p><strong>NOTE: In this visulization, differen colors reperesented different users. Intuatively, Experienced users' traces has less link with less-experience users.</strong></p>
+    <hr />
     </div>
     <!--
         <p> <strong> Note: Blue circle: Code growth traces of experienced developers; White cicle: Code growth traces of less experienced developers.</strong>
@@ -118,9 +121,7 @@
             </div>
             <div>
                 <h3>Method</h3>
-                <p>The main method we applied is controlled laboratory user study. In the user study, subjects (Software Engineer and Researchers in IBM Research) were asked to perform programming samll programming tasks using JazzHub (a cloud based IDE developed by IBM). We also manipulated the orginal JazzHub website locally to perform basic A/B testing.</p>
-
-                <p>We collected several different types of data:</p>
+                <p>The main method we applied is controlled laboratory user study. In the user study, subjects (Software Engineer and Researchers in IBM Research) were asked to perform programming samll programming tasks using JazzHub (a cloud based IDE developed by IBM). We also manipulated the orginal JazzHub website (using Greasemonkey) to perform basic A/B testing. MITMPROXY and IBM Tealeaf was used to monitor users' interactions. We collected several different types of data:</p>
                 <ol>
                 <li>Internet traffics generated in using JazzHub;</li>
                 <li>Video of screen histories;</li>
@@ -138,14 +139,31 @@
             <div>
                 <h3>Results</h3>
                 <p>The user study lead to rich set of findings which are reported in our two papers and a report to JazzHub team for UX improvements. Some findings are as follows:
-                
-                </p>               
+                <ol>
+                <li>By analyzing the user activity traces, we can identify some of difficulties they experienced in using JazzHub;</li>
+                <li>Simple improvements (e.g., position of output canvas) will greatly enhance user experience;</li>
+                <li>Developer's expertise can be inferred from their interaction with JazzHub, which may help to develop recommandation system to provide their some help.</li>
+                </ol> 
+                </p>  
+                <hr />
+                <p><strong>For more information, please check our papers:</strong></p>
+                  <ol>
+                  <li>
+                    <strong>Yi Wang</strong>, Patrick Wagstrom, Evelyn, Duesterwald, and David Redmiles. <br/>
+                    New Opportunities for Extracting Insights from Cloud Based IDEs. <br />
+                    <em>ICSE'14 New Ideas and Emerging Results Track. Accepted, to apeear.</em> [<a href="papers/NIER2014.pdf" target="_blank">Preprint</a>]
+                </li>
+                <li>
+                    <strong>Yi Wang</strong>, Patrick Wagstrom, Evelyn, Duesterwald, and David Redmiles. <br/>
+                    Characterizing Developer Behavior in Cloud Based IDEs. <br/>
+                    <em>Submitted to FSE 2014. Under review.</em> [<a href="papers/FSE JazzHub.pdf" target="_blank">Technical Report</a>]
+                </li>
+                   
+                  </ol>     
+                <p>However, I cannot provide the report to JazzHub team for confidential consideration. But I would like to talk more if you are interest.</p>    
             </div>
         </div>   
     </div>
-    
-    
-    
     
     
     <!-- footer bar -->
