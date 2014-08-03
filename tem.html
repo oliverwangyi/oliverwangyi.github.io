@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"></script> 
+    <script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/canvg.js"></script>
+    <script>
+      function getImgData(chartContainer) {
+        var chartArea = chartContainer.getElementsByTagName('iframe')[0].
+          contentDocument.getElementById('chartArea');
+        var svg = chartArea.innerHTML;
+        var doc = chartContainer.ownerDocument;
+        var canvas = doc.createElement('canvas');
+        canvas.setAttribute('width', chartArea.offsetWidth);
+        canvas.setAttribute('height', chartArea.offsetHeight);
+        
+        
+        canvas.setAttribute(
+            'style',
+            'position: absolute; ' +
+            'top: ' + (-chartArea.offsetHeight * 2) + 'px;' +
+            'left: ' + (-chartArea.offsetWidth * 2) + 'px;');
+        doc.body.appendChild(canvas);
+        canvg(canvas, svg);
+        var imgData = canvas.toDataURL("image/png");
+        canvas.parentNode.removeChild(canvas);
+        return imgData;
+      }
+      
+      function saveAsImg(chartContainer) {
+        var imgData = getImgData(chartContainer);
+        
+        // Replacing the mime-type will force the browser to trigger a download
+        // rather than displaying the image in the browser window.
+        window.location = imgData.replace("image/png", "image/octet-stream");
+      }
+      
+      function toImg(chartContainer, imgContainer) { 
+        var doc = chartContainer.ownerDocument;
+        var img = doc.createElement('img');
+        img.src = getImgData(chartContainer);
+        
+        while (imgContainer.firstChild) {
+          imgContainer.removeChild(imgContainer.firstChild);
+        }
+        imgContainer.appendChild(img);
+      }
+    </script>
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization',
+       'version':'1','packages':['timeline']}]}"></script>
+<script type="text/javascript">
+
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+  var container = document.getElementById('example5.3');
+  var chart = new google.visualization.Timeline(container);
+  var dataTable = new google.visualization.DataTable();
+  dataTable.addColumn({ type: 'string', id: 'sessionID' });
+  dataTable.addColumn({ type: 'string', id: 'Name' });
+  dataTable.addColumn({ type: 'date', id: 'Start' });
+  dataTable.addColumn({ type: 'date', id: 'End' });
+  dataTable.addRows([
+    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Ingredients',       new Date(0,0,0,15,2,02), new Date(0,0,0,15,3,38) ],
+    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Dish',             new Date(0,0,0,15,3,39), new Date(0,0,0,15,3,56) ],
+    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Cusine Style',             new Date(0,0,0,15,3,57), new Date(0,0,0,15,4,19) ],
+    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'View Recipe',          new Date(0,0,0,15,4,20), new Date(0,0,0,15,5,36) ]]);
+
+  var options = {
+    colors: ['#FF3300', '#FFFFCC', '#99FF66', '#3399FF'],
+    backgroundColor: 'white'
+  };
+
+  chart.draw(dataTable, options);
+}
+</script>
+
+<div id="example5.3" style="width: 1360px; height: 250px;"></div>
+  </head>
+  <body>
+    <div id="img_div" style="position: fixed; top: 0; right: 0; z-index: 10; border: 1px solid #b9b9b9">
+      Image will be placed here
+    </div>
+ 
+    <button onclick="saveAsImg(document.getElementById('pie_div'));">Save as PNG Image</button>
+    <button onclick="toImg(document.getElementById('pie_div'), document.getElementById('img_div'));">Convert to image</button>
+    <div id="pie_div"></div>
+ 
+    <button onclick="saveAsImg(document.getElementById('line_div'));">Save as PNG Image</button>
+    <button onclick="toImg(document.getElementById('line_div'), document.getElementById('img_div'));">Convert to image</button>
+    <div id="line_div"></div>    
+    
+    <button onclick="saveAsImg(document.getElementById('treemap_div'));">Save as PNG Image</button>
+    <button onclick="toImg(document.getElementById('treemap_div'), document.getElementById('img_div'));">Convert to image</button>
+    <div id="treemap_div" style="width: 450px; height: 300px;"></div>
+ 
+    <button onclick="saveAsImg(document.getElementById('map_div'));">Save as PNG Image</button>
+    <button onclick="toImg(document.getElementById('map_div'), document.getElementById('img_div'));">Convert to image</button>
+    <div id="map_div" style="width: 500px; height: 300px"></div>
+    
+    <button onclick="saveAsImg(document.getElementById('scatter_div'));">Save as PNG Image</button>
+    <button onclick="toImg(document.getElementById('scatter_div'), document.getElementById('img_div'));">Convert to image</button>
+    <div id="scatter_div"></div>    
+</body>
+</html>
