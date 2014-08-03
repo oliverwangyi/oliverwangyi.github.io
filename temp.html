@@ -15,10 +15,10 @@ function drawChart() {
   dataTable.addColumn({ type: 'date', id: 'Start' });
   dataTable.addColumn({ type: 'date', id: 'End' });
   dataTable.addRows([
-    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Ingredients',       new Date(0,0,0,12,30,0), new Date(0,0,0,14,0,0) ],
-    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Dish',             new Date(0,0,0,14,30,0), new Date(0,0,0,16,0,0) ],
-    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Cusine Style',             new Date(0,0,0,14,30,0), new Date(0,0,0,16,0,0) ],
-    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'View Recipe',          new Date(0,0,0,16,30,0), new Date(0,0,0,18,30,0) ]]);
+    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Ingredients',       new Date(0,0,0,0,0,0), new Date(0,0,0,0,1,29) ],
+    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Dish',             new Date(0,0,0,0,1,30), new Date(0,0,0,0,1,33) ],
+    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'Select Cusine Style',             new Date(0,0,0,0,1,35), new Date(0,0,0,0,2,19) ],
+    [ 'f0baae8e-1b15-4366-dd36-0baff8782d66',   'View Recipe',          new Date(0,0,0,0,2,20), new Date(0,0,0,0,3,36) ]]);
 
   var options = {
     timeline: { colorByRowLabel: true },
@@ -29,4 +29,4 @@ function drawChart() {
 }
 </script>
 
-<div id="example5.3" style="width: 900px; height: 150px;"></div>
+<div id="example5.3" style="width: 1600px; height: 150px;"></div>
